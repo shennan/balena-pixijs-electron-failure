@@ -1,0 +1,29 @@
+{
+  "name": "balena-pixijs-electron-failure-browser",
+  "version": "0.1.0",
+  "private": true,
+  "main": "main.js",
+  "homepage": "./",
+  "dependencies": {
+    "concurrently": "^4.1.2",
+    "electron": "21.0.1",
+    "wait-on": "^3.3.0"
+  },
+  "scripts": {
+    "dev": "concurrently \"npm run start-react\" \"wait-on http://localhost:3000 && NODE_ENV=development electron .\"",
+    "start": "npm rebuild && NODE_ENV=production startx ./node_modules/electron/dist/electron .",
+    "start-local": "NODE_ENV=production electron ."
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
+}
