@@ -2,6 +2,7 @@ version: '2'
 volumes:
   resin-data:
   config:
+  server:
 services:
 
   electron:
@@ -15,4 +16,15 @@ services:
     environment:
       - DBUS_SYSTEM_BUS_ADDRESS=unix:path=/host/run/dbus/system_bus_socket
       - ELECTRON_DISABLE_SECURITY_WARNINGS=true
+    depends_on:
+      - server
+
+  server:
+    build: ./server
+    restart: always
+    volumes:
+      - 'server:/server'
+    ports:
+      - "3000:3000"
+      - "8080:8080"
 

@@ -1,0 +1,12 @@
+{
+  "name": "balena-pixijs-electron-failure-server",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "start": "NODE_ENV=production serve -l 3000 ./build"
+  },
+  "dependencies": {
+    "serve": "*"
+  }
+}

@@ -11,7 +11,7 @@ const {
 
 const {
   SHOW_DEVTOOLS = false,
-  APP_URL = 'http://server:8080'
+  APP_URL = 'http://server:3000'
 } = process.env
 
 // ================== Websocket stuff ==================

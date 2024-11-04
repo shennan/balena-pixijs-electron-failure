@@ -1,4 +1,4 @@
-FROM balenalib/%%BALENA_MACHINE_NAME%%-node:16.19.0-bookworm-run
+FROM balenalib/%%BALENA_MACHINE_NAME%%-node:20.12.0-bookworm-run
 # FROM balenalib/intel-nuc-ubuntu-node
 
 ARG DEBIAN_FRONTEND=noninteractive
@@ -9,7 +9,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends && apt-get inst
   xserver-xorg-core \
   xserver-xorg-input-all \
   xserver-xorg-video-fbdev \
-  xserver-xorg-video-intel \
+  # xserver-xorg-video-intel \
   xserver-xorg-input-elographics \
   xorg \
   x11vnc \
@@ -26,15 +26,13 @@ RUN apt-get update && apt-get install -y --no-install-recommends && apt-get inst
   libasound2 \
   libasound2-dev \
   alsa-utils \
-  alsa-oss
+  alsa-oss \
+  mesa-utils
 # App
 
 RUN echo "#!/bin/bash" > /etc/X11/xinit/xserverrc \
   && echo "" >> /etc/X11/xinit/xserverrc \
   && echo 'exec /usr/bin/X -s 0 dpms -nocursor -nolisten tcp "$@"' >> /etc/X11/xinit/xserverrc
-
-# Screen configs
-COPY ./20-intel.conf /usr/share/X11/xorg.conf.d
 
 # Move to app dir
 WORKDIR /usr/src/app

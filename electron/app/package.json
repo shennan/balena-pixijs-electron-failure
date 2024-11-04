@@ -6,7 +6,7 @@
   "homepage": "./",
   "dependencies": {
     "concurrently": "^4.1.2",
-    "electron": "21.0.1",
+    "electron": "33.0.0",
     "wait-on": "^3.3.0"
   },
   "scripts": {
