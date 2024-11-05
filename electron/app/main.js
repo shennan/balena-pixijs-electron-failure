@@ -83,6 +83,14 @@ function boot () {
 
         appWindow.show()
 
+
+        electron.app.getGPUInfo('complete').then((data) => {
+
+          console.log('GPU INFO:')
+          console.log(data)
+
+        })
+
       }, 300)
     })
   })

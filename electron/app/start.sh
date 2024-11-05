@@ -58,6 +58,15 @@ EndSection
 
 EOF
 
+echo "DISPLAY:"
+echo "$DISPLAY"
+
+echo "GLX INFO:"
+glxinfo
+
+echo "SCREEN:"
+echo "$SCREEN"
+
 startx /usr/src/app/node_modules/electron/dist/electron --use-gl=egl /usr/src/app/ --enable-logging  --no-sandbox
 
 amixer set Master on
